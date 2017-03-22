@@ -1,0 +1,45 @@
+Требования к окружению:
+PHP версии 5.6+
+База данных MySql
+Библиотека PDO
+
+Тестировалось под nginx.
+Настройка:
+	server {
+		listen		127.0.0.1:80;
+		server_name	test2;
+		root		"b:/WWW/test2";
+		autoindex on;
+		error_page 404 /index.php;
+
+		location / {
+			if (!-e $request_filename){
+				# rewrite . /index.php?r=$request_filename last;
+				 rewrite ^/?(.*)$ /index.php?route=$1;
+			}
+		}
+
+		## PHP for localhost ##
+		#######################
+
+		location ~ \.php$ {
+			try_files $uri $uri/index.php = 404;
+			include		nginx.fastcgi.conf;
+			fastcgi_pass	php_farm;
+	        }
+	}
+
+Если apache, настроить RewriteEngine
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/?$ index.php?route=$1 [L]
+
+
+Установка:
+Скачать архив (или сделать форк с github)
+Развернуть архив в папку проекта.
+Отредактировать файл conf/config.php (название таблицы и параметры для подключения к БД
+Запустить conf/migration.php (http://project/conf/config.php)
+

@@ -1,0 +1,46 @@
+body, html   {
+    height: 100%;
+}
+input   {
+    display: block;
+    margin: 20px 0;
+    padding: 4px;
+    width: 400px;
+}
+.url-in   {
+
+}
+
+.wrapper    {
+    height: 100%;
+    width: 100%;
+    display: table;
+    background: #dddddd;
+}
+.frm-cnt   {
+
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.form   {
+    border: 1px solid #909090;
+    display: inline-block;
+    padding: 10px;
+    background: #eeeeee;
+    box-shadow: 5px 4px 2px 2px #b0b0b0;
+    border-radius: 5px;
+}
+.label   {
+    display: block;
+    float: left;
+    width: 100%;
+}
+.taste-btn   {
+    color: cadetblue;
+
+}
+.taste-btn:hover   {
+    color: blue;
+    text-decoration: underline;
+}

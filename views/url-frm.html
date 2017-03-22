@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link href="../css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="../css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="/js/short-url.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="frm-cnt">
+        <div class="form">
+            <div class="error-msg">
+                <?php
+                if (isset($error)){
+                    echo $error;
+                }
+                ?>
+            </div>
+            <span class="label"></span>
+            <input placeholder="Оригинальный URL" type="text" class="url-original">
+            <button class="submit-btn">Отправить</button>
+            <!-- span class="label">Обработаный URL</span -->
+            <input placeholder="Короткий URL" type="text" class="url-in" readonly="readonly">
+            <a class="taste-btn" href="#">Перейти</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
